@@ -1,0 +1,7 @@
+*.log
+*.orig
+.grunt
+.DS_Store
+build
+node_modules
+vendor

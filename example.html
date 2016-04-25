@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TreeTable Plugin Example</title>
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css" media="screen" />
+    <script type="text/javascript" src="src/jquery.treetable.js"></script>
+    <style type="text/css">
+        .treetable-expanded > td:first-child,
+        .treetable-collapsed > td:first-child {
+            padding-left: 2em;
+        }
+
+        .treetable-expanded > td:first-child > .treetable-expander,
+        .treetable-collapsed > td:first-child > .treetable-expander {
+            top: 0.05em;
+            position: relative;
+            margin-left: -1.5em;
+            margin-right: 0.25em;
+        }
+
+        .treetable-expanded .treetable-expander, 
+        .treetable-expanded .treetable-expander {
+            width: 1em;
+            height: 1em;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+        }
+
+        .treetable-depth-1 > td:first-child {
+            padding-left: 3em;
+        }
+        
+        .treetable-depth-2 > td:first-child {
+            padding-left: 4.5em;
+        }
+
+        .treetable-depth-3 > td:first-child {
+            padding-left: 6em;
+        }
+    </style>
+</head>
+<body>
+    <table class="table tree" border="1">
+        <thead>
+            <tr class="sm-text">
+                <th data-type="competency">Competency</th>
+                <th class="text-align-center" data-type="percent-above-score">% &gt; Score</th>
+                <th data-type="average-score">Average Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-node="treetable-650__1" data-pnode="">
+                <td class="competency sm-text" data-code="A" data-competencyid="650-1">
+                    <a href="#1">Application Fluency</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__1_1" data-pnode="treetable-650__1">
+                <td class="competency sm-text" data-code="A.1" data-competencyid="650-1.1">
+                    <a href="#1.1">Understanding Architecture</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__1_2" data-pnode="treetable-650__1">
+                <td class="competency sm-text" data-code="A.2" data-competencyid="650-1.2">
+                    <a href="#1.2">Understanding Core Components</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__1_3" data-pnode="treetable-650__1">
+                <td class="competency sm-text" data-code="A.3" data-competencyid="650-1.3">
+                    <a href="#1.3">PHP Knowledge</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__1_4" data-pnode="treetable-650__1">
+                <td class="competency sm-text" data-code="A.4" data-competencyid="650-1.4">
+                    <a href="#1.4">JavaScript Knowledge</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__1_5" data-pnode="treetable-650__1">
+                <td class="competency sm-text" data-code="A.5" data-competencyid="650-1.5">
+                    <a href="#1.5">Bug-Free Code</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__2" data-pnode="">
+                <td class="competency sm-text" data-code="B" data-competencyid="650-2">
+                    <a href="#2">Be Security Minded</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__2_1" data-pnode="treetable-650__2">
+                <td class="competency sm-text" data-code="B.1" data-competencyid="650-2.1">
+                    <a href="#2.1">Know Ins and Outs (of Functions)</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__2_2" data-pnode="treetable-650__2">
+                <td class="competency sm-text" data-code="B.2" data-competencyid="650-2.2">
+                    <a href="#2.2">Know Types</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__2_3" data-pnode="treetable-650__2">
+                <td class="competency sm-text" data-code="B.3" data-competencyid="650-2.3">
+                    <a href="#2.3">Try to Break Things</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__2_4" data-pnode="treetable-650__2">
+                <td class="competency sm-text" data-code="B.4" data-competencyid="650-2.4">
+                    <a href="#2.4">Desktop and Server Security</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__3" data-pnode="">
+                <td class="competency sm-text" data-code="C" data-competencyid="650-3">
+                    <a href="#3">Constantly Learning</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__3_1" data-pnode="treetable-650__3">
+                <td class="competency sm-text" data-code="C.1" data-competencyid="650-3.1">
+                    <a href="#3.1">Side Projects</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__3_2" data-pnode="treetable-650__3">
+                <td class="competency sm-text" data-code="C.2" data-competencyid="650-3.2">
+                    <a href="#3.2">Up-to-Date on Tech</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__3_3" data-pnode="treetable-650__3">
+                <td class="competency sm-text" data-code="C.3" data-competencyid="650-3.3">
+                    <a href="#3.3">New Languages and Paradigms</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__3_4" data-pnode="treetable-650__3">
+                <td class="competency sm-text" data-code="C.4" data-competencyid="650-3.4">
+                    <a href="#3.4">Doing Existing Things Better</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__4" data-pnode="">
+                <td class="competency sm-text" data-code="D" data-competencyid="650-4">
+                    <a href="#4">Deliver</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__4_1" data-pnode="treetable-650__4">
+                <td class="competency sm-text" data-code="D.1" data-competencyid="650-4.1">
+                    <a href="#4.1">Ship Features</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__4_2" data-pnode="treetable-650__4">
+                <td class="competency sm-text" data-code="D.2" data-competencyid="650-4.2">
+                    <a href="#4.2">Minimal Code Review Needed</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+            <tr data-node="treetable-650__4_3" data-pnode="treetable-650__4">
+                <td class="competency sm-text" data-code="D.3" data-competencyid="650-4.3">
+                    <a href="#4.3">Developing New Ideas</a>
+                </td>
+                <td class="percent-above-score sm-text text-align-center">45.5%</td>
+                <td class="average-score sm-text color-gray">Effective (3)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
