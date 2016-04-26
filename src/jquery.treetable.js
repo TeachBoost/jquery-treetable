@@ -7,6 +7,16 @@
     var old = $.fn.treeTable;
 
     /**
+     * Internal constants
+     */
+    var TT = {
+        expander: 'treetable-expander',
+        expanded: 'treetable-expanded',
+        collapsed: 'treetable-collapsed',
+        expanderTemplate: '<span class="treetable-expander"></span>'
+    };
+
+    /**
      * Public API constructor.
      * Usage: $( selector ).treeTable({ ... })
      */
@@ -96,14 +106,14 @@
             var nodeId = $node.data( 'node' );
 
             if ( self.children[ nodeId ] > 0 ) {
-                $( self.options.expanderTemplate )
+                $( TT.expanderTemplate )
                     .prependTo( $node.find( 'td' ).get( 0 ) )
                     .addClass( (self.options.startCollapsed)
                         ? self.options.collapsedClass
                         : self.options.expandedClass );
                 $node.addClass( (self.options.startCollapsed)
-                    ? 'treetable-collapsed'
-                    : 'treetable-expanded' );
+                    ? TT.collapsed
+                    : TT.expanded );
 
                 // If the node is to start collapsed, collapse all
                 // of this node's children.
@@ -121,7 +131,7 @@
     TreeTable.prototype.attachEvents = function () {
         var self = this;
 
-        this.$table.on( 'click.treetable', '.treetable-expander', function () {
+        this.$table.on( 'click.treetable', '.' + TT.expander, function () {
             var $this = $( this );
             self.toggle( $this, $this.closest( 'tr' ) );
         });
@@ -132,8 +142,23 @@
 
         $expander.toggleClass( this.options.expandedClass );
         $expander.toggleClass( this.options.collapsedClass );
-        $node.toggleClass( 'treetable-collapsed treetable-expanded' )
-        this.$table.find( 'tr[data-pnode="' + nodeId + '"]' ).toggle();
+        $node.toggleClass( TT.collapsed ).toggleClass( TT.expanded );
+
+        if ( $node.hasClass( TT.collapsed ) ) {
+            // Hide all descendant nodes and toggle the state of
+            // any expander in the descendants.
+            this.$table.find( 'tr[data-pnode^="' + nodeId + '"]' )
+                .addClass( TT.collapsed )
+                .removeClass( TT.expanded )
+                .hide();
+            this.$table.find( 'tr[data-pnode^="' + nodeId + '"] .' + TT.expander )
+                .removeClass( this.options.expandedClass )
+                .addClass( this.options.collapsedClass );
+        }
+        else {
+            // Just show the immediate children
+            this.$table.find( 'tr[data-pnode="' + nodeId + '"]' ).show();
+        }
     };
 
     $.fn.treeTable = Plugin;
@@ -141,8 +166,7 @@
         treeColumn: 0,
         startCollapsed: false,
         expandedClass: 'fa fa-angle-down',
-        collapsedClass: 'fa fa-angle-right',
-        expanderTemplate: '<span class="treetable-expander"></span>'
+        collapsedClass: 'fa fa-angle-right'
     };
 
     $.fn.treeTable.noConflict = function () {
