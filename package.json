@@ -1,0 +1,16 @@
+{
+  "name": "jquery-treetable",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Mike Gioia <mike@teachboost.com>",
+  "description": "Library to treeify an HTML table",
+  "license": "MIT",
+  "contributors": "Mike Gioia",
+  "keywords": [],
+  "bugs": "https://github.com/TeachBoost/jquery-treetable/issues",
+  "dependencies": {},
+  "repository": {
+     "type": "git",
+     "url": "https://github.com/TeachBoost/jquery-treetable"
+  }
+}
